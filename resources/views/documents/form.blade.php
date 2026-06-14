@@ -235,11 +235,11 @@
                             </div>
                         </div>
 
-                        <div class="bg-slate-900 text-white p-6 rounded-2xl">
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">WAKTU PERJALANAN</p>
+                        <div class="bg-yellow-200 text-white p-6 rounded-2xl">
+                            <p class="text-[10px] font-black text-yellow-600 uppercase tracking-wide mb-4">WAKTU PERJALANAN</p>
                             <div>
-                                <label class="block text-xs font-bold mb-2">Jarak dari garasi ketempat muat (Km)</label>
-                                <input type="number" x-model.number="form.distance_garage_to_muat" class="w-full bg-slate-800 border-none rounded-xl px-4 py-3 text-2xl font-black outline-none focus:ring-2 focus:ring-indigo-500">
+                                <label class="block text-xs font-bold text-yellow-800 mb-2">Jarak dari garasi ketempat muat (Km)</label>
+                                <input type="number" x-model.number="form.distance_garage_to_muat" class="w-full bg-yellow-100/60 text-yellow-600 border-none rounded-xl px-4 py-3 text-2xl font-black outline-none focus:ring-2 focus:ring-yellow-600">
                             </div>
                         </div>
                     </div>
