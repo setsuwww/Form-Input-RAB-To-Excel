@@ -153,15 +153,15 @@
                         </div>
                         <div class="grid grid-cols-3 gap-4">
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">Panjang (m)</label>
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">Panjang (m)</label>
                                 <input type="number" step="0.01" x-model.number="form.length" class="class-grid-input">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">Lebar (m)</label>
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">Lebar (m)</label>
                                 <input type="number" step="0.01" x-model.number="form.width" class="class-grid-input">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">Tinggi (m)</label>
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">Tinggi (m)</label>
                                 <input type="number" step="0.01" x-model.number="form.height" class="class-grid-input">
                             </div>
                         </div>
@@ -172,39 +172,39 @@
                             </div>
                             <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
                                 <!-- Hint Total Kubik -->
-                                <div class="bg-indigo-50 p-2 mb-2 rounded-lg border border-indigo-100">
-                                    <p class="text-[9px] text-indigo-800 leading-tight">
-                                        <span class="font-black">ℹ️ Rumus:</span><br>
+                                <div class="bg-green-50 p-2 mb-2 rounded-lg border border-green-100">
+                                    <p class="text-[12px] text-green-800 leading-tight">
+                                        <span class="font-black">Rumus:</span><br>
                                         Kubikasi × Qty<br><br>
                                         <span class="font-black">Contoh:</span><br>
                                         <span x-text="form.cubication"></span> × <span x-text="form.quantity"></span> = <span x-text="form.total_cubication"></span> M3
                                     </p>
                                 </div>
-                                <p class="text-[10px] font-black text-slate-400 uppercase">Total Kubik (M3)</p>
+                                <p class="text-[10px] font-black text-slate-400 uppercase mb-2">Total Kubik (M3)</p>
                                 <p class="text-xl font-black text-indigo-600" x-text="form.total_cubication"></p>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">Berat Satuan (Kg)</label>
+                                <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Berat Satuan (Kg)</label>
                                 <input type="number" step="0.01" x-model.number="form.unit_weight" class="class-grid-input">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">Qty (Lembar)</label>
+                                <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Qty (Lembar)</label>
                                 <input type="number" x-model.number="form.quantity" class="class-grid-input">
                             </div>
                         </div>
-                        <div class="bg-indigo-600 p-4 rounded-xl text-white shadow-lg">
+                        <div class="bg-green-50 p-4 rounded-xl text-green-700 shadow-xs">
                             <!-- Hint Total Berat -->
-                            <div class="bg-indigo-400/30 p-2 mb-2 rounded-lg border border-indigo-400/50">
-                                <p class="text-[9px] text-white leading-tight">
-                                    <span class="font-black">ℹ️ Rumus:</span><br>
+                            <div class="bg-green-100 p-2 mb-2 rounded-lg border border-green-400/50">
+                                <p class="text-[12px] text-green-700 leading-tight">
+                                    <span class="font-black">Rumus:</span><br>
                                     Berat Satuan × Qty<br><br>
                                     <span class="font-black">Contoh:</span><br>
                                     <span x-text="form.unit_weight"></span> Kg × <span x-text="form.quantity"></span> = <span x-text="form.total_weight"></span> Kg
                                 </p>
                             </div>
-                            <p class="text-[10px] font-black uppercase text-indigo-300">Total Berat (Kg)</p>
+                            <p class="text-[12px] font-black uppercase text-green-800 mt-6">Total Berat (Kg)</p>
                             <p class="text-3xl font-black" x-text="form.total_weight"></p>
                         </div>
                     </div>
