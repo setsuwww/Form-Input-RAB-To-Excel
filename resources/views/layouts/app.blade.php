@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TJA - Waktu & BBM</title>
+    <title>Simple RAB Form</title>
 
     <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,15 +24,15 @@
 
     <!-- Sidebar / Nav -->
     <nav class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <a href="{{ route('dashboard') }}" class="text-xl font-bold tracking-wider">TJA OPERASIONAL</a>
-                <div class="hidden md:flex space-x-4 text-sm font-medium">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-20">
+                <a href="{{ route('dashboard') }}" class="text-xl font-bold text-yellow-500">TJA OPERASIONAL</a>
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
                     <a href="{{ route('dashboard') }}" class="hover:text-indigo-200 transition">Dashboard</a>
                     <a href="{{ route('rekap') }}" class="hover:text-indigo-200 transition">Rekap</a>
                     <div class="relative group" x-data="{ open: false }">
                         <button @click="open = !open" class="hover:text-indigo-200 transition flex items-center">
-                            Master Data <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            Master Data <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div x-show="open" @click.away="open = false" class="absolute left-0 mt-2 w-48 bg-white text-slate-800 rounded-md shadow-xl py-2 z-50">
                             <a href="{{ route('master.brands') }}" class="block px-4 py-2 hover:bg-indigo-50">Merk Kendaraan</a>
