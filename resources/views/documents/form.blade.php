@@ -2,9 +2,9 @@
 
 @section('content')
 <div x-data="documentForm()" x-init="init()">
-    <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+    <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-400">
         <div>
-            <h1 class="text-2xl font-black text-slate-800 uppercase tracking-tight" x-text="isEdit ? 'Edit Dokumen' : 'Dokumen Baru'"></h1>
+            <h1 class="text-2xl font-black text-slate-600 uppercase tracking-tight" x-text="isEdit ? 'Edit Dokumen' : 'Dokumen Baru'"></h1>
             <p class="text-slate-500 text-sm font-medium">Pastikan data sesuai dengan template Excel PT. TJA</p>
         </div>
         <div class="flex space-x-3">
@@ -15,8 +15,8 @@
 
     <div class="space-y-6 pb-24">
         <!-- 1. INFORMASI CUSTOMER & LOKASI -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div class="bg-slate-50 px-8 py-4 border-b border-slate-100 font-black text-slate-400 text-xs uppercase tracking-widest">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-400 overflow-hidden">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-400 font-black text-slate-400 text-xs uppercase tracking-wide">
                 Informasi Customer & Alamat
             </div>
             <div class="p-8 space-y-6">
@@ -24,29 +24,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-xs font-black text-slate-700 uppercase mb-2">Customer</label>
-                        <input type="text" x-model="form.customer_name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none font-medium">
+                        <input type="text" x-model="form.customer_name" class="class-customer-input">
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-xs font-black text-slate-700 uppercase mb-2">Nama Perusahaan</label>
-                        <input type="text" x-model="form.company_name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none font-medium">
+                        <input type="text" x-model="form.company_name" class="class-customer-input">
                     </div>
                 </div>
 
                 <!-- Row: Alamat -->
                 <div>
                     <label class="block text-xs font-black text-slate-700 uppercase mb-2">Alamat</label>
-                    <textarea x-model="form.address" rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none font-medium"></textarea>
+                    <textarea x-model="form.address" rows="2" class="class-customer-input"></textarea>
                 </div>
 
                 <hr class="border-slate-100">
 
-                <!-- Section: Muat -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
+                    <!-- Section: Muat -->
+                    <div class="space-y-4 bg-indigo-100 p-4 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <h3 class="font-bold text-indigo-600 text-sm">ALAMAT MUAT</h3>
                             <div class="relative w-2/3">
-                                <input type="text" placeholder="Cari Lokasi Muat..." @input.debounce.500ms="searchLocation($event.target.value, 'muat')" class="w-full px-4 py-2 text-xs rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
+                                <input type="text" placeholder="Cari Lokasi Muat..." @input.debounce.500ms="searchLocation($event.target.value, 'muat')" class="bg-indigo-200 px-4 py-2 w-full rounded-xl text-indigo-600">
                                 <div x-show="results.muat.length" class="absolute z-50 w-full mt-1 bg-white border border-slate-100 rounded-lg shadow-xl max-h-40 overflow-y-auto">
                                     <template x-for="res in results.muat">
                                         <button @click="selectLocation(res, 'muat')" class="w-full text-left px-3 py-2 hover:bg-indigo-50 text-[10px] border-b border-slate-50 last:border-0" x-text="res.display_name"></button>
@@ -57,38 +57,38 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                             <div class="md:col-span-1">
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Nama Tempat</label>
-                                <input type="text" x-model="form.muat_name" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm font-bold">
+                                <input type="text" x-model="form.muat_name" class="w-full mt-1 px-3 py-2 rounded-lg bg-indigo-200 border border-slate-200 text-sm font-bold">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Kota</label>
-                                <input type="text" x-model="form.muat_city" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm">
+                                <input type="text" x-model="form.muat_city" class="w-full mt-1 px-3 py-2 rounded-lg bg-indigo-200 border border-slate-200 text-sm">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Provinsi</label>
-                                <input type="text" x-model="form.muat_province" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm">
+                                <input type="text" x-model="form.muat_province" class="w-full mt-1 px-3 py-2 rounded-lg bg-indigo-200 border border-slate-200 text-sm">
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">PIC Muat</label>
-                                <input type="text" x-model="form.muat_pic" class="w-full bg-transparent border-b-2 border-slate-200 focus:border-indigo-500 outline-none py-1 text-sm font-bold">
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">PIC Muat</label>
+                                <input type="text" x-model="form.muat_pic" class="class-customer-input">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">No Tlp</label>
-                                <input type="text" x-model="form.muat_phone" class="w-full bg-transparent border-b-2 border-slate-200 focus:border-indigo-500 outline-none py-1 text-sm font-bold">
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">No Tlp</label>
+                                <input type="text" x-model="form.muat_phone" class="class-customer-input">
                             </div>
                         </div>
                     </div>
 
                     <!-- Section: Bongkar -->
-                    <div class="space-y-4">
+                    <div class="space-y-4 bg-orange-100 p-4 rounded-2xl">
                         <div class="flex items-center justify-between">
                             <h3 class="font-bold text-orange-600 text-sm">ALAMAT BONGKAR</h3>
                             <div class="relative w-2/3">
-                                <input type="text" placeholder="Cari Lokasi Bongkar..." @input.debounce.500ms="searchLocation($event.target.value, 'bongkar')" class="w-full px-4 py-2 text-xs rounded-lg border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
+                                <input type="text" placeholder="Cari Lokasi Bongkar..." @input.debounce.500ms="searchLocation($event.target.value, 'bongkar')" class="bg-orange-200 px-4 py-2 w-full rounded-xl text-orange-600">
                                 <div x-show="results.bongkar.length" class="absolute z-50 w-full mt-1 bg-white border border-slate-100 rounded-lg shadow-xl max-h-40 overflow-y-auto">
                                     <template x-for="res in results.bongkar">
-                                        <button @click="selectLocation(res, 'bongkar')" class="w-full text-left px-3 py-2 hover:bg-indigo-50 text-[10px] border-b border-slate-50 last:border-0" x-text="res.display_name"></button>
+                                        <button @click="selectLocation(res, 'bongkar')" class="w-full text-left px-3 py-2 hover:bg-orange-50 text-[10px] border-b border-slate-50 last:border-0" x-text="res.display_name"></button>
                                     </template>
                                 </div>
                             </div>
@@ -96,25 +96,25 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                             <div class="md:col-span-1">
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Nama Tempat</label>
-                                <input type="text" x-model="form.bongkar_name" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm font-bold">
+                                <input type="text" x-model="form.bongkar_name" class="w-full mt-1 px-3 py-2 rounded-lg bg-orange-200 border border-slate-200 text-sm font-bold">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Kota</label>
-                                <input type="text" x-model="form.bongkar_city" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm">
+                                <input type="text" x-model="form.bongkar_city" class="w-full mt-1 px-3 py-2 rounded-lg bg-orange-200 border border-slate-200 text-sm">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Provinsi</label>
-                                <input type="text" x-model="form.bongkar_province" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm">
+                                <input type="text" x-model="form.bongkar_province" class="w-full mt-1 px-3 py-2 rounded-lg bg-orange-200 border border-slate-200 text-sm">
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">PIC Bongkar</label>
-                                <input type="text" x-model="form.bongkar_pic" class="w-full bg-transparent border-b-2 border-slate-200 focus:border-indigo-500 outline-none py-1 text-sm font-bold">
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">PIC Bongkar</label>
+                                <input type="text" x-model="form.bongkar_pic" class="class-customer-input">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase">No Tlp</label>
-                                <input type="text" x-model="form.bongkar_phone" class="w-full bg-transparent border-b-2 border-slate-200 focus:border-indigo-500 outline-none py-1 text-sm font-bold">
+                                <label class="block text-[10px] font-black text-slate-400 mb-2 uppercase">No Tlp</label>
+                                <input type="text" x-model="form.bongkar_phone" class="class-customer-input">
                             </div>
                         </div>
                     </div>
@@ -125,27 +125,23 @@
                     <div id="map-bongkar" class="map-container border border-slate-200 shadow-inner"></div>
                 </div>
 
-                <div class="bg-indigo-900 text-white p-6 rounded-2xl flex items-center justify-between shadow-lg">
+                <div class="bg-slate-200 text-white p-6 rounded-2xl flex items-center justify-between shadow-xs">
                     <div class="flex items-center space-x-4">
-                        <div class="bg-indigo-800 p-3 rounded-xl">
+                        <div class="bg-slate-400 p-3 rounded-xl">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-[10px] font-black uppercase tracking-tighter text-indigo-300">Estimasi Jarak Tempuh (OSRM)</p>
-                            <p class="text-2xl font-black" x-text="form.jarak_tempuh_estimasi + ' Km'"></p>
+                            <p class="text-[10px] font-black uppercase tracking-tighter text-slate-600">Estimasi Jarak Tempuh (OSRM)</p>
+                            <p class="text-2xl font-black text-slate-800" x-text="form.jarak_tempuh_estimasi + ' Km'"></p>
                         </div>
-                    </div>
-                    <div class="w-1/3">
-                        <label class="block text-[10px] font-black uppercase text-indigo-300 mb-1">Jarak Tempuh Manual (Km)</label>
-                        <input type="number" x-model.number="form.distance_manual" class="w-full bg-indigo-800 border-none rounded-xl px-4 py-2 text-xl font-black outline-none focus:ring-2 focus:ring-white">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 2. CARGO & DIMENSI -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div class="bg-slate-50 px-8 py-4 border-b border-slate-100 font-black text-slate-400 text-xs uppercase tracking-widest">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-400 overflow-hidden">
+            <div class="bg-slate-50 px-8 py-4 border-b border-slate-400 font-black text-slate-400 text-xs uppercase tracking-wide">
                 Detail Cargo & Kendaraan
             </div>
             <div class="p-8">
@@ -158,15 +154,15 @@
                         <div class="grid grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Panjang (m)</label>
-                                <input type="number" step="0.01" x-model.number="form.length" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold">
+                                <input type="number" step="0.01" x-model.number="form.length" class="class-grid-input">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Lebar (m)</label>
-                                <input type="number" step="0.01" x-model.number="form.width" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold">
+                                <input type="number" step="0.01" x-model.number="form.width" class="class-grid-input">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Tinggi (m)</label>
-                                <input type="number" step="0.01" x-model.number="form.height" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold">
+                                <input type="number" step="0.01" x-model.number="form.height" class="class-grid-input">
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
@@ -191,11 +187,11 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Berat Satuan (Kg)</label>
-                                <input type="number" step="0.01" x-model.number="form.unit_weight" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold">
+                                <input type="number" step="0.01" x-model.number="form.unit_weight" class="class-grid-input">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black text-slate-400 uppercase">Qty (Lembar)</label>
-                                <input type="number" x-model.number="form.quantity" class="w-full px-3 py-2 rounded-lg border border-slate-200 font-bold">
+                                <input type="number" x-model.number="form.quantity" class="class-grid-input">
                             </div>
                         </div>
                         <div class="bg-indigo-600 p-4 rounded-xl text-white shadow-lg">
