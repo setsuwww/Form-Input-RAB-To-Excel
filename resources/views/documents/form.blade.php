@@ -251,7 +251,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- MUATAN -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="bg-indigo-600 px-8 py-4 border-b border-indigo-700 font-black text-white text-xs uppercase tracking-widest">
+                <div class="bg-indigo-600 px-8 py-4 border-b border-indigo-700 font-black text-white text-xs uppercase tracking-wide">
                     MUATAN
                 </div>
                 <div class="p-8 space-y-4">
@@ -270,8 +270,8 @@
                     <div class="bg-indigo-50 p-4 rounded-xl space-y-2 border border-indigo-100">
                         <!-- Hint Jarak Tempuh Muatan -->
                         <div class="bg-indigo-100/50 p-2 rounded-lg border border-indigo-200">
-                            <p class="text-[9px] text-indigo-900 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-indigo-900 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Kecepatan Rata-rata × Jam Kerja<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.speed_muatan"></span> Km/Jam × <span x-text="form.work_hours_muatan"></span> Jam/Hari = <span x-text="form.daily_dist_muatan"></span> Km/Hari
@@ -285,8 +285,8 @@
                     <div class="bg-slate-50 p-4 rounded-xl space-y-2 border border-slate-100">
                         <!-- Hint Total Perjalanan Muatan -->
                         <div class="bg-indigo-50 p-2 rounded-lg border border-indigo-100">
-                            <p class="text-[9px] text-indigo-800 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-indigo-800 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Jarak ÷ Jarak Tempuh<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.distance_muatan"></span> Km ÷ <span x-text="form.daily_dist_muatan"></span> Km/Hari = <span x-text="form.total_perjalanan_muatan"></span> Hari
@@ -308,8 +308,8 @@
                     <div class="bg-indigo-600 p-6 rounded-2xl text-white shadow-xl mt-4 space-y-2">
                         <!-- Hint Total Muatan -->
                         <div class="bg-indigo-400/30 p-2 rounded-lg border border-indigo-400/50">
-                            <p class="text-[9px] text-indigo-100 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-indigo-100 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Total Perjalanan + Muat + Bongkar<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.total_perjalanan_muatan"></span> + <span x-text="form.muat_days"></span> + <span x-text="form.bongkar_days"></span> = <span x-text="form.total_hari_muatan"></span> Hari
@@ -342,8 +342,8 @@
                     <div class="bg-slate-100 p-4 rounded-xl space-y-2 border border-slate-200">
                         <!-- Hint Jarak Tempuh Kosongan -->
                         <div class="bg-indigo-50 p-2 rounded-lg border border-indigo-100">
-                            <p class="text-[9px] text-indigo-800 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-indigo-800 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Kecepatan Rata-rata × Jam Kerja<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.speed_kosongan"></span> Km/Jam × <span x-text="form.work_hours_kosongan"></span> Jam/Hari = <span x-text="form.daily_dist_kosongan"></span> Km/Hari
@@ -357,8 +357,8 @@
                     <div class="bg-slate-50 p-4 rounded-xl space-y-2 border border-slate-100">
                         <!-- Hint Total Perjalanan Kosongan -->
                         <div class="bg-indigo-50 p-2 rounded-lg border border-indigo-100">
-                            <p class="text-[9px] text-indigo-800 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-indigo-800 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Jarak ÷ Jarak Tempuh<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.distance_kosongan"></span> Km ÷ <span x-text="form.daily_dist_kosongan"></span> Km/Hari = <span x-text="form.total_perjalanan_kosongan"></span> Hari
@@ -370,12 +370,12 @@
                         </div>
                     </div>
                     <!-- Empty space to align with Muatan height -->
-                    <div class="h-[108px]"></div>
+                    <div class="h-[100px]"></div>
                     <div class="bg-slate-800 p-6 rounded-2xl text-white shadow-xl mt-4 space-y-2">
                         <!-- Hint Total Kosongan -->
                         <div class="bg-slate-700/50 p-2 rounded-lg border border-slate-600">
-                            <p class="text-[9px] text-slate-300 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-slate-300 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Total Perjalanan<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.total_perjalanan_kosongan"></span> = <span x-text="form.total_hari_kosongan"></span> Hari
@@ -408,8 +408,8 @@
                     <div class="bg-emerald-600 p-4 rounded-xl text-white shadow-lg mt-4 space-y-2">
                         <!-- Hint BBM Muatan -->
                         <div class="bg-emerald-500/30 p-2 rounded-lg border border-emerald-500/50">
-                            <p class="text-[9px] text-emerald-100 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-emerald-100 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Jarak ÷ Rasio BBM<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.bbm_dist_muatan"></span> Km ÷ <span x-text="form.bbm_ratio_muatan"></span> Km/Liter = <span x-text="form.bbm_usage_muatan"></span> Liter
@@ -436,8 +436,8 @@
                     <div class="bg-emerald-800 p-4 rounded-xl text-white shadow-lg mt-4 space-y-2">
                         <!-- Hint BBM Kosongan -->
                         <div class="bg-emerald-700/30 p-2 rounded-lg border border-emerald-700/50">
-                            <p class="text-[9px] text-emerald-100 leading-tight">
-                                <span class="font-black">ℹ️ Rumus:</span><br>
+                            <p class="text-[12px] text-emerald-100 leading-tight">
+                                <span class="font-black">Rumus:</span><br>
                                 Jarak ÷ Rasio BBM<br><br>
                                 <span class="font-black">Contoh:</span><br>
                                 <span x-text="form.bbm_dist_kosongan"></span> Km ÷ <span x-text="form.bbm_ratio_kosongan"></span> Km/Liter = <span x-text="form.bbm_usage_kosongan"></span> Liter
