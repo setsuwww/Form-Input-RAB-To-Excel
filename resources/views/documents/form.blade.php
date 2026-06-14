@@ -2,7 +2,7 @@
 
 @section('content')
 <div x-data="documentForm()" x-init="init()">
-    <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-400">
+    <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-xs border border-slate-400">
         <div>
             <h1 class="text-2xl font-black text-slate-600 uppercase tracking-tight" x-text="isEdit ? 'Edit Dokumen' : 'Dokumen Baru'"></h1>
             <p class="text-slate-500 text-sm font-medium">Pastikan data sesuai dengan template Excel PT. TJA</p>
