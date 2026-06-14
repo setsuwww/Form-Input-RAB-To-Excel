@@ -409,9 +409,20 @@
                         <span class="text-sm font-bold text-slate-600 uppercase tracking-tighter">Rasio BBM (1 Liter Bbm : Km)</span>
                         <input type="number" step="0.1" x-model.number="form.bbm_ratio_muatan" class="w-32 text-right px-3 py-2 rounded-lg border border-slate-200 font-bold">
                     </div>
-                    <div class="bg-emerald-600 p-4 rounded-xl text-white shadow-lg mt-4 flex justify-between items-center">
-                        <span class="text-xs font-black uppercase text-emerald-200">PEMAKAIAN (Liter)</span>
-                        <span class="text-2xl font-black" x-text="form.bbm_usage_muatan"></span>
+                    <div class="bg-emerald-600 p-4 rounded-xl text-white shadow-lg mt-4 space-y-2">
+                        <!-- Hint BBM Muatan -->
+                        <div class="bg-emerald-500/30 p-2 rounded-lg border border-emerald-500/50">
+                            <p class="text-[9px] text-emerald-100 leading-tight">
+                                <span class="font-black">ℹ️ Rumus:</span><br>
+                                Jarak ÷ Rasio BBM<br><br>
+                                <span class="font-black">Contoh:</span><br>
+                                <span x-text="form.bbm_dist_muatan"></span> Km ÷ <span x-text="form.bbm_ratio_muatan"></span> Km/Liter = <span x-text="form.bbm_usage_muatan"></span> Liter
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black uppercase text-emerald-200">PEMAKAIAN (Liter)</span>
+                            <span class="text-2xl font-black" x-text="form.bbm_usage_muatan"></span>
+                        </div>
                     </div>
                 </div>
 
@@ -426,9 +437,20 @@
                         <span class="text-sm font-bold text-slate-600 uppercase tracking-tighter">Rasio BBM (1 Liter Bbm : Km)</span>
                         <input type="number" step="0.1" x-model.number="form.bbm_ratio_kosongan" class="w-32 text-right px-3 py-2 rounded-lg border border-slate-200 font-bold">
                     </div>
-                    <div class="bg-emerald-800 p-4 rounded-xl text-white shadow-lg mt-4 flex justify-between items-center">
-                        <span class="text-xs font-black uppercase text-emerald-400">PEMAKAIAN (Liter)</span>
-                        <span class="text-2xl font-black" x-text="form.bbm_usage_kosongan"></span>
+                    <div class="bg-emerald-800 p-4 rounded-xl text-white shadow-lg mt-4 space-y-2">
+                        <!-- Hint BBM Kosongan -->
+                        <div class="bg-emerald-700/30 p-2 rounded-lg border border-emerald-700/50">
+                            <p class="text-[9px] text-emerald-100 leading-tight">
+                                <span class="font-black">ℹ️ Rumus:</span><br>
+                                Jarak ÷ Rasio BBM<br><br>
+                                <span class="font-black">Contoh:</span><br>
+                                <span x-text="form.bbm_dist_kosongan"></span> Km ÷ <span x-text="form.bbm_ratio_kosongan"></span> Km/Liter = <span x-text="form.bbm_usage_kosongan"></span> Liter
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black uppercase text-emerald-400">PEMAKAIAN (Liter)</span>
+                            <span class="text-2xl font-black" x-text="form.bbm_usage_kosongan"></span>
+                        </div>
                     </div>
                 </div>
             </div>
