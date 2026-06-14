@@ -250,7 +250,7 @@
         <!-- 3. MUATAN & KOSONGAN (SIDE BY SIDE) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- MUATAN -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-400 overflow-hidden">
                 <div class="bg-indigo-600 px-8 py-4 border-b border-indigo-700 font-black text-white text-xs uppercase tracking-wide">
                     MUATAN
                 </div>
@@ -322,8 +322,8 @@
             </div>
 
             <!-- KOSONGAN -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-                <div class="bg-slate-800 px-8 py-4 border-b border-slate-900 font-black text-white text-xs uppercase tracking-widest">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-400 overflow-hidden">
+                <div class="bg-slate-800 px-8 py-4 border-b border-slate-900 font-black text-white text-xs uppercase tracking-wide">
                     KOSONGAN
                 </div>
                 <div class="p-8 space-y-4">
@@ -389,8 +389,8 @@
         </div>
 
         <!-- 4. BAHAN BAKAR MINYAK (SIDE BY SIDE) -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-            <div class="bg-slate-50 px-8 py-4 border-b border-slate-100 font-black text-slate-400 text-xs uppercase tracking-widest">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-400 overflow-hidden">
+            <div class="bg-slate-50 px-8 py-4 border-b border-slate-100 font-black text-slate-400 text-xs uppercase tracking-wide">
                 BAHAN BAKAR MINYAK (BBM)
             </div>
             <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-12">
