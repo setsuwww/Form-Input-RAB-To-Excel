@@ -125,62 +125,44 @@
             },
 
             exportSingle(doc) {
-                const ws_data = [
-                    ["WAKTU DAN BBM PT. TAMBUN JAYA ABADI"],
-                    ["", "", "", "", "", ""], // Spacer
-                    ["Customer", doc.customer_name, "", "PT Tambun Jaya Abadi", "", ""],
-                    ["Alamat", doc.address, "", "", "", ""],
-                    ["Alamat Muat", doc.muat_name, "", doc.muat_city, doc.muat_province, ""],
-                    ["Pic", doc.muat_pic, "No Tlp", doc.muat_phone, "", ""],
-                    ["Alamat Bongkar", doc.bongkar_name, "", doc.bongkar_city, doc.bongkar_province, ""],
-                    ["Pic", doc.bongkar_pic, "No Tlp", doc.bongkar_phone, "", ""],
-                    ["Jarak Tempuh", doc.distance_manual, "Km", "", "", ""],
-                    ["Cargo", doc.cargo_name, "", "", "", ""],
-                    ["Panjang", doc.length, "", "", "", ""],
-                    ["Lebar", doc.width, "", "", "", ""],
-                    ["Tinggi", doc.height, "", "", "", ""],
-                    ["Kubikasi", doc.cubication, "M3", "", "", ""],
-                    ["Berat Sat", doc.unit_weight, "Kg", "", "", ""],
-                    ["Qty", doc.quantity, "Lembar", "", "", ""],
-                    ["Total Berat", doc.total_weight, "Kg", "", "", ""],
-                    ["Total Kubik", doc.total_cubication, "M3", "", "", ""],
-                    ["", "", "", "", "", ""],
-                    ["Merk Kendaraan", doc.vehicle_brand, "", "", "", ""],
-                    ["No Mobil", doc.vehicle_plate, "", "", "", ""],
-                    ["Jenis Kendaraan", doc.vehicle_type, "", "", "", ""],
-                    ["WAKTU PERJALANAN", "", "", "WAKTU PERJALANAN", "", ""],
-                    ["Jarak dari garasi ketempat muat", doc.distance_garage_to_muat, "Km", "", "", ""],
-                    ["", "", "", "", "", ""],
-                    ["MUATAN", "", "", "KOSONGAN", "", ""],
-                    ["Jarak", doc.distance_muatan, "Km", "Jarak", doc.distance_kosongan, "Km"],
-                    ["Kecepatan Rata2", doc.speed_muatan, "Km Perjam", "Kecepatan Rata2", doc.speed_kosongan, "Km Perjam"],
-                    ["Jam Kerja", doc.work_hours_muatan, "Jam Perhari", "Jam Kerja", doc.work_hours_kosongan, "Jam Perhari"],
-                    ["Jarak Tempuh", doc.daily_dist_muatan, "Km Perhari", "Jarak Tempuh", doc.daily_dist_kosongan, "Km Perhari"],
-                    ["Total Perjalanan", doc.total_perjalanan_muatan, "Hari", "Total Perjalanan", doc.total_perjalanan_kosongan, "Hari"],
-                    ["Muat", doc.muat_days, "Hari", "", "", ""],
-                    ["Bongkar", doc.bongkar_days, "Hari", "", "", ""],
-                    ["Total", doc.total_hari_muatan, "Hari", "Total", doc.total_hari_kosongan, "Hari"],
-                    ["", "", "", "", "", ""],
-                    ["BAHAN BAKAR MINYAK", "", "", "BAHAN BAKAR MINYAK", "", ""],
-                    ["BBM", "", "", "BBM", "", ""],
-                    ["Jarak", doc.bbm_dist_muatan, "Km", "Jarak", doc.bbm_dist_kosongan, "Km"],
-                    ["1 Liter Bbm", doc.bbm_ratio_muatan, "Km", "1 Liter Bbm", doc.bbm_ratio_kosongan, "Km"],
-                    ["Pemakaian", doc.bbm_usage_muatan, "Liter", "Pemakaian", doc.bbm_usage_kosongan, "Liter"]
-                ];
+                // Kirim data ke backend untuk diproses menggunakan template logistics-template.xlsx
+                fetch('{{ route("export.excel") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify(doc)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Gagal export file');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `TJA-${doc.customer_name}-${doc.id}.xlsx`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Gagal mengekspor file Excel. Pastikan template sudah tersedia.');
+                });
+            },
 
-                const wb = XLSX.utils.book_new();
-                const ws = XLSX.utils.aoa_to_sheet(ws_data);
-
-                ws['!merges'] = [
-                    { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }, // Title
-                    { s: { r: 2, c: 3 }, e: { r: 2, c: 5 } }, // Company Name
-                    { s: { r: 3, c: 1 }, e: { r: 3, c: 5 } }, // Alamat
-                    { s: { r: 4, c: 1 }, e: { r: 4, c: 2 } }, // Alamat Muat
-                    { s: { r: 6, c: 1 }, e: { r: 6, c: 2 } }  // Alamat Bongkar
-                ];
-
-                XLSX.utils.book_append_sheet(wb, ws, "Waktu & BBM");
-                XLSX.writeFile(wb, `TJA-${doc.customer_name}-${doc.id}.xlsx`);
+            exportMultiple() {
+                const docs = this.filteredDocs;
+                if (docs.length === 0) return alert('Tidak ada data untuk dieksport.');
+                if (confirm(`Export ${docs.length} file sekaligus?`)) {
+                    docs.forEach((doc, index) => {
+                        setTimeout(() => {
+                            this.exportSingle(doc);
+                        }, index * 1000); // Beri jeda 1 detik tiap file agar tidak diblokir browser
+                    });
+                }
             }
         }
     }

@@ -1,10 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentExportController;
 
 Route::get("/", function () {
     return view("dashboard");
 })->name("dashboard");
+
+Route::post("/export-excel", [DocumentExportController::class, "export"])->name(
+    "export.excel",
+);
+
 Route::get("/documents/new", function () {
     return view("documents.form");
 })->name("documents.create");
